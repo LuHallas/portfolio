@@ -144,13 +144,12 @@ function Hero() {
   )
 }
 
-/* ── SOBRE NOVO ── */
+/* ── SOBRE ── */
 function Sobre() {
   return (
     <section className="sobre3" id="sobre">
       <div className="sobre3-inner">
 
-        {/* Topo — logo + título lado a lado */}
         <div className="sobre3-top fade-up">
           <div className="sobre3-titulo">
             <div className="eyebrow">Sobre a empresa</div>
@@ -160,13 +159,11 @@ function Sobre() {
           </div>
         </div>
 
-        {/* Meio — texto em duas colunas */}
         <div className="sobre3-texto fade-up">
           <p>A Hallas Software é uma empresa de desenvolvimento web focada em entregar soluções digitais que realmente funcionam para o seu negócio. Trabalhamos com atenção total aos detalhes, do design à performance.</p>
           <p>Atendemos empresas de todos os tamanhos — do MEI que precisa de presença digital até empresas que precisam de sistemas complexos sob medida. Cada projeto é desenvolvido com código limpo, design responsivo e foco total em resultado.</p>
         </div>
 
-        {/* Stats em linha */}
         <div className="sobre3-stats fade-up">
           {[
             { n: '40+', l: 'Projetos entregues' },
@@ -181,7 +178,6 @@ function Sobre() {
           ))}
         </div>
 
-        {/* Chips + CTA */}
         <div className="sobre3-bottom fade-up">
           <div className="sobre3-chips">
             {[
@@ -442,11 +438,11 @@ function Contato() {
           <div className="contact-items">
             {[
               { icon: '💬', label: 'WhatsApp', value: '(55) 99732-4370', href: 'https://wa.me/5555997324370' },
-              { icon: '📧', label: 'E-mail', value: 'contato.hallassoftware@outlook.com', href: 'mailto:contato.hallassoftware@outlook.com' },
-              { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/in/hallassoftware', href: '#' },
-              { icon: '📸', label: 'Instagram', value: '@hallassoftware', href: '#' },
+              { icon: '📧', label: 'E-mail', value: 'contato.hallassoftware@gmail.com', href: 'mailto:contato.hallassoftware@gmail.com' },
+              { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/company/hallas-software', href: 'https://www.linkedin.com/company/hallas-software' },
+              { icon: '📸', label: 'Instagram', value: '@hallas.software', href: 'https://www.instagram.com/hallas.software' },
             ].map((c, i) => (
-              <a href={c.href} className="contact-item" key={i}>
+              <a href={c.href} className="contact-item" key={i} target="_blank" rel="noreferrer">
                 <div className="ci-icon">{c.icon}</div>
                 <div>
                   <div className="ci-label">{c.label}</div>
