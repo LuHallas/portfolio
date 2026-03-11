@@ -1,11 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { projetos } from '../data/projetos'
 
 export default function Home() {
   const navigate = useNavigate()
 
-  // Animação fade-up ao scrollar
   useEffect(() => {
     const els = document.querySelectorAll('.fade-up')
     const obs = new IntersectionObserver((entries) => {
@@ -22,7 +21,6 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <StatsBar />
       <Sobre />
       <Servicos />
       <Processo />
@@ -37,103 +35,177 @@ export default function Home() {
 /* ── HERO ── */
 function Hero() {
   return (
-    <section className="hero">
-      <div className="fade-up">
-        <div className="hero-eyebrow">✦ Desenvolvimento Web Profissional</div>
-        <h1>Sites que <em>vendem</em><br />e impressionam.</h1>
-        <p className="hero-sub">
-          Da identidade digital ao e-commerce completo — soluções web sob medida
-          que geram resultado real para o seu negócio.
+    <section className="hero2">
+      <div className="hero2-dots" />
+
+      <div className="hero2-left fade-up">
+        <div className="hero2-badge">
+          <span className="hero2-pulse" />
+          Disponível para novos projetos
+        </div>
+
+        <h1 className="hero2-title">
+          Sites que <em>vendem</em><br />e impressionam.
+        </h1>
+
+        <p className="hero2-sub">
+          Da identidade digital ao e-commerce completo —<br />
+          soluções web sob medida que geram resultado real.
         </p>
-        <div className="hero-actions">
+
+        <div className="hero2-actions">
           <button className="btn-primary" onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}>
-            Ver projetos
+            Ver projetos →
           </button>
           <button className="btn-text" onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}>
-            Falar sobre seu projeto →
+            Falar sobre seu projeto
           </button>
+        </div>
+
+        <div className="hero2-stats">
+          {[
+            { n: '40+', l: 'Projetos entregues' },
+            { n: '98%', l: 'Clientes satisfeitos' },
+            { n: '3×',  l: 'Aumento em conversões' },
+          ].map((s, i) => (
+            <div className="hero2-stat" key={i}>
+              <div className="hero2-stat-n">{s.n}</div>
+              <div className="hero2-stat-l">{s.l}</div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div className="hero-right fade-up" style={{ transitionDelay: '0.15s' }}>
-        <div className="hcard hcard-main">
-          <div className="hbrow">
-            <div className="hb-dot hb-r"></div>
-            <div className="hb-dot hb-y"></div>
-            <div className="hb-dot hb-g"></div>
-            <div className="hb-url"></div>
+      <div className="hero2-right">
+        <div className="hero2-fade-top" />
+        <div className="hero2-fade-bottom" />
+
+        <div className="hero2-col hero2-col-up">
+          <div className="hero2-track">
+            {[
+              '/images/advocacia_hero.jpg','/images/ecommerce-moda_hero.jpg','/images/clinica_hero.jpg',
+              '/images/cafe_hero.jpg','/images/construtora_hero.jpg','/images/sistema_hero.jpg',
+              '/images/advocacia_hero.jpg','/images/ecommerce-moda_hero.jpg','/images/clinica_hero.jpg',
+              '/images/cafe_hero.jpg','/images/construtora_hero.jpg','/images/sistema_hero.jpg',
+            ].map((src, i) => (
+              <div className="hero2-card" key={i}>
+                <div className="hero2-browser-bar">
+                  <span className="hero2-dot" style={{ background: '#ff5f57' }} />
+                  <span className="hero2-dot" style={{ background: '#febc2e' }} />
+                  <span className="hero2-dot" style={{ background: '#28c840' }} />
+                </div>
+                <img src={src} alt="" />
+              </div>
+            ))}
           </div>
-          <div className="hmock"></div>
-          <div className="hl"></div>
-          <div className="hl" style={{ width: '55%' }}></div>
-          <div className="hl ac"></div>
-          <div className="hl" style={{ width: '72%' }}></div>
         </div>
-        <div className="hcard hcard-s1">
-          <div className="smn-l">Projetos entregues</div>
-          <div className="smn-n">40+</div>
-          <div className="smn-s">Sites, e-commerces e sistemas</div>
+
+        <div className="hero2-col hero2-col-down">
+          <div className="hero2-track">
+            {[
+              '/images/cafe_secao2.jpg','/images/advocacia_secao2.jpg','/images/construtora_secao2.jpg',
+              '/images/clinica_secao2.jpg','/images/ecommerce-moda_secao2.jpg','/images/advocacia_secao3.jpg',
+              '/images/cafe_secao2.jpg','/images/advocacia_secao2.jpg','/images/construtora_secao2.jpg',
+              '/images/clinica_secao2.jpg','/images/ecommerce-moda_secao2.jpg','/images/advocacia_secao3.jpg',
+            ].map((src, i) => (
+              <div className="hero2-card" key={i}>
+                <div className="hero2-browser-bar">
+                  <span className="hero2-dot" style={{ background: '#ff5f57' }} />
+                  <span className="hero2-dot" style={{ background: '#febc2e' }} />
+                  <span className="hero2-dot" style={{ background: '#28c840' }} />
+                </div>
+                <img src={src} alt="" />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="hcard hcard-s2">
-          <div className="smn-l">Conversão média</div>
-          <div className="smn-n">3×</div>
-          <div className="smn-s">Mais resultados após o lançamento</div>
-        </div>
-        <div className="hcard hcard-badge">
-          <div className="bdot"></div>
-          Disponível para novos projetos
+
+        <div className="hero2-col hero2-col-up2">
+          <div className="hero2-track">
+            {[
+              '/images/construtora_secao3.jpg','/images/cafe_secao3.jpg','/images/clinica_secao3.jpg',
+              '/images/advocacia_secao4.jpg','/images/ecommerce-moda_secao3.jpg','/images/cafe_secao4.jpg',
+              '/images/construtora_secao3.jpg','/images/cafe_secao3.jpg','/images/clinica_secao3.jpg',
+              '/images/advocacia_secao4.jpg','/images/ecommerce-moda_secao3.jpg','/images/cafe_secao4.jpg',
+            ].map((src, i) => (
+              <div className="hero2-card" key={i}>
+                <div className="hero2-browser-bar">
+                  <span className="hero2-dot" style={{ background: '#ff5f57' }} />
+                  <span className="hero2-dot" style={{ background: '#febc2e' }} />
+                  <span className="hero2-dot" style={{ background: '#28c840' }} />
+                </div>
+                <img src={src} alt="" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
-/* ── STATS ── */
-function StatsBar() {
-  const stats = [
-    { num: '40+', label: 'Projetos entregues' },
-    { num: '98%', label: 'Clientes satisfeitos' },
-    { num: '3×',  label: 'Aumento médio em conversões' },
-    { num: '5★',  label: 'Avaliação média dos clientes' },
-  ]
-  return (
-    <div className="stats-bar">
-      {stats.map((s, i) => (
-        <div className="si fade-up" key={i}>
-          <div className="si-n">{s.num}</div>
-          <div className="si-l">{s.label}</div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-/* ── SOBRE ── */
+/* ── SOBRE NOVO ── */
 function Sobre() {
   return (
-    <section className="section" id="sobre">
-      <div className="about-grid">
-        <div className="about-img fade-up">
-          <div className="about-monogram">HS</div>
-          <div className="about-badge">
-            <div className="smn-l">Desde</div>
-            <div className="smn-n" style={{ fontSize: '1.4rem' }}>2020</div>
+    <section className="sobre3" id="sobre">
+      <div className="sobre3-inner">
+
+        {/* Topo — logo + título lado a lado */}
+        <div className="sobre3-top fade-up">
+          <div className="sobre3-titulo">
+            <div className="eyebrow">Sobre a empresa</div>
+            <h2 className="sec-title">
+              Tecnologia que<br /><em>transforma negócios.</em>
+            </h2>
           </div>
         </div>
-        <div className="about-text fade-up" style={{ transitionDelay: '0.1s' }}>
-          <div className="eyebrow">Sobre a empresa</div>
-          <h2 className="sec-title" style={{ marginBottom: '1.8rem' }}>
-            Tecnologia que<br /><em>transforma negócios.</em>
-          </h2>
+
+        {/* Meio — texto em duas colunas */}
+        <div className="sobre3-texto fade-up">
           <p>A Hallas Software é uma empresa de desenvolvimento web focada em entregar soluções digitais que realmente funcionam para o seu negócio. Trabalhamos com atenção total aos detalhes, do design à performance.</p>
-          <p>Atendemos empresas de todos os tamanhos — do MEI que precisa de presença digital até empresas que precisam de sistemas complexos sob medida.</p>
-          <p>Cada projeto é desenvolvido com código limpo, design responsivo e foco total em resultado. Não entregamos apenas um site — entregamos uma ferramenta de vendas.</p>
-          <div className="about-chips">
-            {['🎯 Foco em resultado', '🚀 Entrega no prazo', '💬 Comunicação clara', '🔧 Suporte contínuo', '📱 100% responsivo', '⚡ Alta performance'].map(c => (
-              <span className="chip" key={c}>{c}</span>
+          <p>Atendemos empresas de todos os tamanhos — do MEI que precisa de presença digital até empresas que precisam de sistemas complexos sob medida. Cada projeto é desenvolvido com código limpo, design responsivo e foco total em resultado.</p>
+        </div>
+
+        {/* Stats em linha */}
+        <div className="sobre3-stats fade-up">
+          {[
+            { n: '40+', l: 'Projetos entregues' },
+            { n: '98%', l: 'Clientes satisfeitos' },
+            { n: '5★',  l: 'Avaliação média' },
+            { n: '3×',  l: 'Aumento em conversões' },
+          ].map((s, i) => (
+            <div className="sobre3-stat" key={i}>
+              <div className="sobre3-stat-n">{s.n}</div>
+              <div className="sobre3-stat-l">{s.l}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Chips + CTA */}
+        <div className="sobre3-bottom fade-up">
+          <div className="sobre3-chips">
+            {[
+              { icon: '🎯', label: 'Foco em resultado' },
+              { icon: '🚀', label: 'Entrega no prazo' },
+              { icon: '💬', label: 'Comunicação clara' },
+              { icon: '🔧', label: 'Suporte contínuo' },
+              { icon: '📱', label: '100% responsivo' },
+              { icon: '⚡', label: 'Alta performance' },
+            ].map((c, i) => (
+              <div className="sobre2-chip" key={i}>
+                <span>{c.icon}</span>
+                <span>{c.label}</span>
+              </div>
             ))}
           </div>
+          <button
+            className="btn-primary"
+            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Iniciar um projeto →
+          </button>
         </div>
+
       </div>
     </section>
   )
@@ -200,17 +272,16 @@ function Processo() {
 
 /* ── PORTFOLIO ── */
 const corClasses = {
-  blue:   { vis: 'mv-blue',   h: 'linear-gradient(120deg,#dbeafe,#bfdbfe)' },
-  rose:   { vis: 'mv-rose',   h: 'linear-gradient(120deg,#fecdd3,#fda4af)' },
-  teal:   { vis: 'mv-teal',   h: 'linear-gradient(120deg,#ccfbf1,#99f6e4)' },
-  slate:  { vis: 'mv-slate',  h: 'linear-gradient(120deg,#e2e8f0,#cbd5e1)' },
-  amber:  { vis: 'mv-amber',  h: 'linear-gradient(120deg,#fde68a,#fcd34d)' },
-  violet: { vis: 'mv-violet', h: 'linear-gradient(120deg,#ede9fe,#ddd6fe)' },
+  blue:   { vis: 'mv-blue' },
+  rose:   { vis: 'mv-rose' },
+  teal:   { vis: 'mv-teal' },
+  slate:  { vis: 'mv-slate' },
+  amber:  { vis: 'mv-amber' },
+  violet: { vis: 'mv-violet' },
 }
 
 function Portfolio({ navigate }) {
   const tamanhos = ['pcard-lg', 'pcard-md', 'pcard-sm', 'pcard-sm', 'pcard-md', 'pcard-sm']
-
   return (
     <section className="section section-alt" id="portfolio">
       <div className="sec-head fade-up">
@@ -263,7 +334,7 @@ function Planos() {
   const planos = [
     {
       icon: '🎯', tipo: 'Landing Page', nome: 'Conversão & Captação',
-      preco: 'R$800 ', suporte: 'R$ 150/mês', destaque: false,
+      preco: 'R$800', suporte: 'R$ 150/mês', destaque: false,
       features: ['Design exclusivo e responsivo', 'Formulário de captação de leads', 'Integração com WhatsApp', 'Pixel de conversão (Meta / Google)', 'SEO básico on-page', 'Entrega em até 7 dias'],
     },
     {
@@ -282,7 +353,6 @@ function Planos() {
       features: ['Levantamento de requisitos', 'Arquitetura de banco de dados', 'Painel administrativo completo', 'API RESTful documentada', 'Controle de usuários e permissões', 'Hospedagem em nuvem configurada', 'Prazo definido por escopo'],
     },
   ]
-
   return (
     <section className="section" id="planos">
       <div className="sec-head fade-up">
@@ -310,10 +380,7 @@ function Planos() {
             <ul className="plan-features">
               {p.features.map((f, j) => <li key={j}>{f}</li>)}
             </ul>
-            <button
-              className="plan-cta"
-              onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-            >
+            <button className="plan-cta" onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}>
               Solicitar orçamento
             </button>
           </div>
@@ -375,7 +442,7 @@ function Contato() {
           <div className="contact-items">
             {[
               { icon: '💬', label: 'WhatsApp', value: '(55) 99732-4370', href: 'https://wa.me/5555997324370' },
-              { icon: '📧', label: 'E-mail', value: 'contato@hallassoftware.com.br', href: 'mailto:contato@hallassoftware.com.br' },
+              { icon: '📧', label: 'E-mail', value: 'contato.hallassoftware@outlook.com', href: 'mailto:contato.hallassoftware@outlook.com' },
               { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/in/hallassoftware', href: '#' },
               { icon: '📸', label: 'Instagram', value: '@hallassoftware', href: '#' },
             ].map((c, i) => (
