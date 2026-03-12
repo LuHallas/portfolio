@@ -28,7 +28,7 @@ export default function Projeto() {
   if (!projeto) {
     navigate('/')
     return null
-  }
+  } 
 
   const index = projetos.findIndex(p => p.slug === slug)
   const anterior = projetos[index - 1] || null
