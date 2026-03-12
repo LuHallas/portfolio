@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { projetos } from '../data/projetos'
 
@@ -423,6 +424,29 @@ function Depoimentos() {
 
 /* ── CONTATO ── */
 function Contato() {
+  const [form, setForm] = useState({ nome: '', email: '', telefone: '', tipo: '', mensagem: '' })
+
+  function handleChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  function enviarWhatsApp() {
+    const { nome, email, telefone, tipo, mensagem } = form
+    if (!nome || !mensagem) {
+      alert('Por favor, preencha pelo menos o nome e a mensagem.')
+      return
+    }
+    const texto = `Olá, gostaria de saber mais sobre os serviços!
+
+*Nome:* ${nome}
+*E-mail:* ${email || 'Não informado'}
+*Telefone:* ${telefone || 'Não informado'}
+*Tipo de projeto:* ${tipo || 'Não informado'}
+*Mensagem:* ${mensagem}`
+
+    window.open(`https://wa.me/5555997324370?text=${encodeURIComponent(texto)}`, '_blank')
+  }
+
   return (
     <section className="section" id="contato">
       <div className="sec-head fade-up">
@@ -434,10 +458,10 @@ function Contato() {
       <div className="contact-grid fade-up">
         <div className="contact-info">
           <h3>Transforme sua ideia<br />em realidade digital.</h3>
-          <p>Descreva seu projeto e entraremos em contato em até 24 horas com uma proposta personalizada. Sem compromisso.</p>
+          <p>Preencha o formulário e envie direto pelo WhatsApp. Respondemos em até 24 horas.</p>
           <div className="contact-items">
             {[
-              { icon: '💬', label: 'WhatsApp', value: '(55) 99732-4370', href: 'https://wa.me/5555997324370' },
+              { icon: '💬', label: 'WhatsApp', value: '(55) 99732-4370', href: 'https://wa.me/5555997324370?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os!' },
               { icon: '📧', label: 'E-mail', value: 'contato.hallassoftware@gmail.com', href: 'mailto:contato.hallassoftware@gmail.com' },
               { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/company/hallas-software', href: 'https://www.linkedin.com/company/hallas-software' },
               { icon: '📸', label: 'Instagram', value: '@hallas.software', href: 'https://www.instagram.com/hallas.software' },
@@ -454,14 +478,14 @@ function Contato() {
         </div>
         <div className="contact-form">
           <div className="form-row">
-            <div className="form-group"><label>Nome</label><input type="text" placeholder="Seu nome" /></div>
-            <div className="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com" /></div>
+            <div className="form-group"><label>Nome</label><input type="text" name="nome" placeholder="Seu nome" value={form.nome} onChange={handleChange} /></div>
+            <div className="form-group"><label>E-mail</label><input type="email" name="email" placeholder="seu@email.com" value={form.email} onChange={handleChange} /></div>
           </div>
           <div className="form-row">
-            <div className="form-group"><label>Telefone</label><input type="tel" placeholder="(00) 00000-0000" /></div>
+            <div className="form-group"><label>Telefone</label><input type="tel" name="telefone" placeholder="(00) 00000-0000" value={form.telefone} onChange={handleChange} /></div>
             <div className="form-group">
               <label>Tipo de projeto</label>
-              <select>
+              <select name="tipo" value={form.tipo} onChange={handleChange}>
                 <option value="">Selecione...</option>
                 <option>Landing Page</option>
                 <option>Site Institucional</option>
@@ -471,8 +495,10 @@ function Contato() {
               </select>
             </div>
           </div>
-          <div className="form-group"><label>Conte sobre seu projeto</label><textarea placeholder="Descreva brevemente o que você precisa..."></textarea></div>
-          <button className="btn-primary" style={{ width: '100%' }}>Enviar mensagem →</button>
+          <div className="form-group"><label>Conte sobre seu projeto</label><textarea name="mensagem" placeholder="Descreva brevemente o que você precisa..." value={form.mensagem} onChange={handleChange}></textarea></div>
+          <button className="btn-primary" style={{ width: '100%' }} onClick={enviarWhatsApp}>
+            💬 Enviar pelo WhatsApp →
+          </button>
         </div>
       </div>
     </section>

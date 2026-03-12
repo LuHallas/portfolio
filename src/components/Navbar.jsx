@@ -15,9 +15,17 @@ export default function Navbar() {
     }
   }
 
+  function irParaTopo() {
+    if (location.pathname !== '/') {
+      navigate('/')
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   return (
     <nav className="navbar">
-      <Link to="/" className="logo">
+      <Link to="/" className="logo" onClick={irParaTopo}>
         Hallas<span>.</span>Software
       </Link>
 
