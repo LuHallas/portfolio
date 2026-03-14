@@ -444,7 +444,7 @@ function Contato() {
 *Tipo de projeto:* ${tipo || 'Não informado'}
 *Mensagem:* ${mensagem}`
 
-    window.open(`https://wa.me/5555997324370?text=${encodeURIComponent(texto)}`, '_blank')
+    window.open(`https://wa.me/5515997509313?text=${encodeURIComponent(texto)}`, '_blank')
   }
 
   return (
@@ -461,8 +461,8 @@ function Contato() {
           <p>Preencha o formulário e envie direto pelo WhatsApp. Respondemos em até 24 horas.</p>
           <div className="contact-items">
             {[
-              { icon: '💬', label: 'WhatsApp', value: '(55) 99732-4370', href: 'https://wa.me/5555997324370?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os!' },
-              { icon: '📧', label: 'E-mail', value: 'contato.hallassoftware@gmail.com', href: 'mailto:contato.hallassoftware@gmail.com' },
+              { icon: '💬', label: 'WhatsApp', value: '(15) 99750-9313', href: 'https://wa.me/5515997509313?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os!' },
+              { icon: '📧', label: 'E-mail', value: 'contato@hallassoftware.com.br', href: 'mailto:contato@hallassoftware.com.br' },
               { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/company/hallas-software', href: 'https://www.linkedin.com/company/hallas-software' },
               { icon: '📸', label: 'Instagram', value: '@hallas.software', href: 'https://www.instagram.com/hallas.software' },
             ].map((c, i) => (
