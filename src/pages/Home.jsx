@@ -331,22 +331,22 @@ function Planos() {
   const planos = [
     {
       icon: '🎯', tipo: 'Landing Page', nome: 'Conversão & Captação',
-      preco: 'R$800', suporte: 'R$ 150/mês', destaque: false,
+      preco: 'R$600', suporte: 'R$ 150/mês', destaque: false,
       features: ['Design exclusivo e responsivo', 'Formulário de captação de leads', 'Integração com WhatsApp', 'Pixel de conversão (Meta / Google)', 'SEO básico on-page', 'Entrega em até 7 dias'],
     },
     {
       icon: '🏢', tipo: 'Site Institucional', nome: 'Presença Digital Completa',
-      preco: 'R$ 2.000', suporte: 'R$ 250/mês', destaque: true,
+      preco: 'R$ 1.000', suporte: 'R$ 250/mês', destaque: true,
       features: ['Até 8 páginas completas', 'Design exclusivo e responsivo', 'CMS para edição de conteúdo', 'Blog integrado', 'SEO técnico completo', 'Google Analytics configurado', 'Entrega em até 20 dias'],
     },
     {
       icon: '🛒', tipo: 'E-commerce', nome: 'Loja Virtual Completa',
-      preco: 'R$ 4.000', suporte: 'R$ 400/mês', destaque: false,
+      preco: 'R$ 2.000', suporte: 'R$ 400/mês', destaque: false,
       features: ['Catálogo ilimitado de produtos', 'Checkout otimizado para conversão', 'Integração Pix, cartão e boleto', 'Integração com Correios / fretes', 'Painel de gestão de pedidos', 'Relatórios de vendas', 'Entrega em até 35 dias'],
     },
     {
       icon: '⚙️', tipo: 'Sistema Web', nome: 'Plataforma Sob Medida',
-      preco: 'R$ 8.000', suporte: 'R$ 600/mês', destaque: false,
+      preco: 'R$ 4.000', suporte: 'R$ 600/mês', destaque: false,
       features: ['Levantamento de requisitos', 'Arquitetura de banco de dados', 'Painel administrativo completo', 'API RESTful documentada', 'Controle de usuários e permissões', 'Hospedagem em nuvem configurada', 'Prazo definido por escopo'],
     },
   ]
